@@ -10,22 +10,34 @@
     function adddiV(type,moniD,finaL)
   {
     var node = document.createElement(type);                 // Create a <li> node
-             node.setAttribute("id",moniD);              
+    node.setAttribute("id",moniD);              
     document.getElementById(finaL).appendChild(node);  
   }
     class IdentificationHtml {
-    constructor(setattributE,iD,clasS,innerhtmL,typE,srC,valuE) {
+    constructor(setattributE,iD,finaL,clasS,innerhtmL,typE,srC,valuE) {
     this.setattributE=setattributE;
-    this.iD = iD;     
+    this.iD = iD;
+    this.finaL=finaL;     
     this.clasS = ""; 
     this.innerhtmL = ""; 
     this.typE = "";   
     this.srC = ""; 
-    this.valuE = "";  
-
+    this.valuE = "";
     var node = document.createElement(setattributE);  // donne un atribu lors de l'utilisation              
     node.setAttribute("id",iD);
-    document.body.appendChild(node);  
+  
+    if(this.finaL==undefined)
+    {
+      document.body.appendChild(node);  
+    }
+    else 
+    {
+      document.getElementById(this.finaL).appendChild(node);  
+    }
+ 
+      
+ 
+    
   } 
 
   get setattributE_()
@@ -88,6 +100,7 @@
     this.valuE= valuE ; 
     document.getElementById(this.iD).setAttribute("value",valuE);
   }
+ 
 }
 class IdentificationKey {
     constructor(iD,onkeydowN,onkeypresS,onkeyuP) {
